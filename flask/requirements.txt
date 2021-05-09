@@ -1,0 +1,8 @@
+flask
+requests
+flask-login
+PyJWT
+flask-mysql
+flask-sqlalchemy
+pymongo
+cryptography

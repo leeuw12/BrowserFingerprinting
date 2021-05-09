@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title></title>
+	<link rel="stylesheet" href="../static/css/css_ready.css">
+<!--    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/css_ready.css') }}">-->
+</head>
+<body>
+	<hr>
+	<div class="info-big">
+		Your Fingerprint:
+	</div>
+	<div class="fp" id="fingerprint"></div><br>
+	<hr>
+	<br>
+	<div class="info">
+		try opening this pen in incognito mode and it should still assign you the same fingerprint id
+	</div><br>
+	<br>
+	<br>
+	<div class="info">
+		Browser:
+	</div>
+	<div class="fp" id="browser"></div><br>
+	<div class="info">
+		Flash:
+	</div>
+	<div class="fp" id="flash"></div><br>
+	<div class="info">
+		Canvas:
+	</div>
+	<div class="fp" id="canvas"></div><br>
+	<div class="info">
+		Connection:
+	</div>
+	<div class="fp" id="connection"></div><br>
+	<div class="info">
+		Cookie:
+	</div>
+	<div class="fp" id="cookie"></div><br>
+	<div class="info">
+		Display:
+	</div>
+	<div class="fp" id="display"></div><br>
+	<div class="info">
+		Font Smoothing:
+	</div>
+	<div class="fp" id="fontsmoothing"></div><br>
+	<div class="info">
+		Fonts:
+	</div>
+	<div class="fp" id="fonts"></div><br>
+	<div class="info">
+		Form Fields:
+	</div>
+	<div class="fp" id="formfields"></div><br>
+	<div class="info">
+		Java:
+	</div>
+	<div class="fp" id="java"></div><br>
+	<div class="info">
+		Language:
+	</div>
+	<div class="fp" id="language"></div><br>
+	<div class="info">
+		Silverlight:
+	</div>
+	<div class="fp" id="silverlight"></div><br>
+	<div class="info">
+		OS:
+	</div>
+	<div class="fp" id="os"></div><br>
+	<div class="info">
+		Time Zone:
+	</div>
+	<div class="fp" id="timezone"></div><br>
+	<div class="info">
+		Touch:
+	</div>
+	<div class="fp" id="touch"></div><br>
+	<div class="info">
+		True Browser:
+	</div>
+	<div class="fp" id="truebrowser"></div><br>
+	<div class="info">
+		Plug Ins:
+	</div>
+	<div class="fp" id="plugins"></div><br>
+	<div class="info">
+		User Agent:
+	</div>
+	<div class="fp" id="useragent"></div>
+
+	<button class="btn btn-primary" id="submit" onclick="submit_message();">Submit message</button>
+
+
+<!--	<script src="{{url_for('static', filename='js/FpOpenSource.js')}}"></script>-->
+
+<!--	External scripts-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/md5.js"></script>
+
+
+<!--	Getting parametrs:-->
+
+
+<!--	Parameter handling-->
+	<script src="../static/js/parametrs.js"></script>
+
+
+<!--	Making a browser fingerprint-->
+	<script src="../static/js/FpOpenSource.js"></script>
+<!--	<script src="../static/js/Fingerprint.js"></script>-->
+
+<!--	Send to server-->
+<script src="../static/js/sendToServer.js"></script>
+
+</body>
+</html>

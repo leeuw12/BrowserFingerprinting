@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>BrowserFingerprint</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <h1 class="navbar-text">Personal browser fingerprint</h1>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#first_container">Home</a></li>
+                <li><a href="#info1">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                {% if user.id %}
+                <li><a href="logout">Logout</a></li>
+                {% else %}
+                <li><a href="login">Login</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section id="first_container">
+    <div class="container">
+
+
+    </div>
+</section>
+
+
+
+<footer>
+    <p class="text-center">BrowserFingerprint © 2021 All Right Reserved</p>
+</footer>
+
+
+<!--<script src="js/canvas.js"></script>-->
+</body>
+</html>
