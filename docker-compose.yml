@@ -14,7 +14,7 @@ services:
     container_name: flask
     command: python server.py
     volumes:
-      - ./flask/info.log:/usr/src/flask/info.log
+      - ./flask:/usr/src/flask
 
   mongodb:
     image: mongo:latest
