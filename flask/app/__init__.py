@@ -86,8 +86,6 @@ def foo():
         abort(400)
     req = request.get_json()
     array = req
-    logger.info(req)
-    logger.info(type(req))
 
     res = make_response(jsonify({"message": "OK"}), 200)
 
