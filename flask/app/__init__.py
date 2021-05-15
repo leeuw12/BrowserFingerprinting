@@ -1,3 +1,4 @@
+import datetime
 import logging
 from logging.handlers import RotatingFileHandler
 
@@ -27,10 +28,12 @@ def configure_logging():
 
 app = Flask(__name__, static_folder='./static/', template_folder='./templates/')
 app.secret_key = 'c0M`e~t_C1O}d'
+app.permanent_session_lifetime = datetime.timedelta(days=365)
 
 client = MongoClient('mongodb', 27017)
 db = client['mydb']
 users = db.users
+data = db.data
 
 logger = configure_logging()
 
@@ -64,10 +67,8 @@ class User(flask_login.UserMixin):
 @app.route('/', methods=['GET'])
 def index():
     try:
-        if current_user.is_authenticated():
-            return redirect(url_for("details"))
-        else:
-            redirect(url_for("login"))
+        current_user.id
+        return redirect(url_for("details"))
     except:
         return redirect(url_for("login"))
 
@@ -84,16 +85,25 @@ def foo():
     if not request.json:
         abort(400)
     req = request.get_json()
-    print(req)
+    array = req
     logger.info(req)
+    logger.info(type(req))
+
     res = make_response(jsonify({"message": "OK"}), 200)
+
+    try:
+        now = datetime.datetime.now()
+        date = now.strftime("%d-%m-%Y %H:%M:%S")
+
+        user = current_user.id
+        logger.info("date: " + date + ", user: " + user)
+
+        array.update({'date': date, 'username': user})
+
+        db.data.insert_one(array)
+    except Exception as ex:
+        logger.warning(ex)
     return res
-    # logger.info("worked")
-    # if not request.json:
-    #     abort(400)
-    # print(request.json)
-    # logger.info(request.json)
-    # return json.dumps(request.json)
 
 
 # REGISRTATION
@@ -148,7 +158,5 @@ def signup_post():
 @app.route('/logout')
 @login_required
 def logout():
-    user = current_user
-    user.authenticated = False
     logout_user()
     return redirect(url_for('index'))

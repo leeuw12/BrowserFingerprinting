@@ -26,7 +26,7 @@ let parametrs = {
     screenHeight: "Undefined",
     screenColorDepth: "Undefined",
 
-    fonts: "",
+    fonts: "Undefined",
 
     canvas_test: "Undefined",
 
@@ -147,7 +147,7 @@ function browserType() {
             numVersion = Number(RegExp.$1); // capture x.x portion and store as a number
             strBrowser = "Cloud (Google AppEngine) " + numVersion;
         } else {
-            strBrowser = "Unknown";
+            strBrowser = "Unknown_browser";
         }
         strOut = strBrowser;
         return strOut;
@@ -168,7 +168,7 @@ function mimeTypesGet() {
             message = array;
         }
     } else {
-        message = "unsupported";
+        message = "unsupported_mimeTypesGet";
     }
     return message;
 }
@@ -185,17 +185,17 @@ function pluginsGet() {
             message = array;
         }
     } else {
-        message = "unsupported";
+        message = "unsupported_pluginsGet";
     }
     return message;
 }
 
-function checkMe(func) {
+function checkMe(func, func_name = '') {
     try {
         if (func) return func
-        else return "unsupported"
+        else return "unsupported_" + func_name
     } catch (error) {
-        return "unsupported"
+        return "unsupported_" + func_name
     }
 }
 
@@ -211,7 +211,7 @@ function languagesSet() {
             message = array;
         }
     } else {
-        message = "unsupported";
+        message = "unsupported_languagesSet";
     }
     return array;
 }
@@ -253,7 +253,7 @@ function countProperties() {
 
 function getConnectedDevices(type) {
     if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
-        return "unsupported";
+        return "unsupported_getConnectedDevices";
     }
     let array = [];
     navigator.mediaDevices.enumerateDevices().then(function (devices) {
@@ -261,7 +261,7 @@ function getConnectedDevices(type) {
             array.push(String(device.kind));
         });
     }).catch(function (err) {
-        return "unsupported";
+        return "unsupported_getConnectedDevices";
     });
     return array;
 }
@@ -328,7 +328,7 @@ function save(canvas) {
 function canvasGet() {
     "use strict";
     var strOnError, canvas, strCText, strText, strOut;
-    strOnError = "Error";
+    strOnError = "Error_canvasGet";
     canvas = null;
     strCText = null;
     strText = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`~1!2@3#4$5%6^7&8*9(0)-_=+[{]}|;:',<.>/?";
