@@ -1,5 +1,5 @@
 let submit_message = function () {
-
+    document.getElementById('browser').innerHTML = "your browser settings are currently being recognized";
     parametrs.useragent = navigator.userAgent
     parametrs.browserType = browserType()
     parametrs.plugins = pluginsGet()
