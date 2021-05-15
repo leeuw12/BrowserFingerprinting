@@ -4,8 +4,8 @@ from logging.handlers import RotatingFileHandler
 
 import flask_login
 from flask import Flask, abort
-from flask import flash, redirect, url_for
-from flask import make_response
+from flask import make_response, flash
+from flask import redirect, url_for
 from flask import request, jsonify, render_template
 from flask_login import LoginManager
 from flask_login import current_user, login_required
@@ -145,7 +145,8 @@ def signup_post():
     password = request.form.get('password')
     user = db.users.find_one({"username": username})
     if user:
-        return redirect(url_for('login'))
+        flash('Username address already exists')
+        return redirect(url_for('register'))
     try:
         db.users.insert_one({"username": username, "password": generate_password_hash(password, method='sha256')})
     except Exception as ex:
