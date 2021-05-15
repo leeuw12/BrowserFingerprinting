@@ -1,5 +1,5 @@
 let submit_message = function () {
-    document.getElementById('browser').innerHTML = "your browser settings are currently being recognized";
+    document.getElementById('info_waiting').innerHTML = "your browser settings are currently being recognized";
     parametrs.useragent = navigator.userAgent
     parametrs.browserType = browserType()
     parametrs.plugins = pluginsGet()
@@ -39,6 +39,8 @@ let submit_message = function () {
     document.getElementById('plugins').innerHTML = plugins;
     document.getElementById('useragent').innerHTML = parametrs.useragent;
 
+    document.getElementById('info_waiting').innerHTML = "";
+
 
     fetch(`${window.origin}/foo`, {
         method: "POST",
@@ -60,6 +62,7 @@ let submit_message = function () {
         console.log("Fetch error: " + error);
     });
 
+    document.getElementById('info_waiting').innerHTML = "";
 
     // document.getElementById('fingerprint').innerHTML = fingerprint_browser(parametrs);
 }
