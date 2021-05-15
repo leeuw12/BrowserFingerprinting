@@ -133,7 +133,6 @@ def login_post():
     if user:
         if check_password_hash(str(user['password']), password):
             login_user(User(user))
-            flash("Successfully logged in")
             return redirect(url_for('details'))
     else:
         return redirect(url_for('login'))
