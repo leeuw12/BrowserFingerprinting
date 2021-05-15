@@ -24,12 +24,19 @@ let submit_message = function () {
     parametrs.unmaskedInfoWebGL = getUnmaskedInfoWebGL()
     parametrs.webGLgetInfo = webGLgetInfo()
 
+    let display = "" + parametrs.screenWidth + " | " + parametrs.screenHeight + " | " + parametrs.screenColorDepth;
+    let plugins = ""
+    for (let i = 0; i < parametrs.plugins.length; i += 1) {
+        plugins += parametrs.plugins[i];
+    }
+
+
     document.getElementById('browser').innerHTML = parametrs.browserType;
-    document.getElementById('display').innerHTML = fingerprint_display();
-    document.getElementById('language').innerHTML = fingerprint_language();
+    document.getElementById('display').innerHTML = display;
+    document.getElementById('language').innerHTML = parametrs.language;
     document.getElementById('os').innerHTML = parametrs.platform;
     document.getElementById('timezone').innerHTML = parametrs.timezone;
-    document.getElementById('plugins').innerHTML = fingerprint_plugins();
+    document.getElementById('plugins').innerHTML = plugins;
     document.getElementById('useragent').innerHTML = parametrs.useragent;
 
 
