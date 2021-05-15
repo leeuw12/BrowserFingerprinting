@@ -37,13 +37,17 @@
 			</div>
 		</div>
 	</nav>
+
+	<script>
+		document.getElementById("submit").style.display = "none";
+	</script>
 	<section id="first_container">
 		<div class="container">
 <!--			<button class="btn btn-primary" id="submit" onclick="submit_message();">Get my fingerprint</button>-->
 			        <hr>
 
 
-			        <button class="btn btn-primary" id="submit" onclick="submit_message();">Get my fingerprint</button>
+			        <button class="btn btn-primary" id="submit" onclick="this.style.visibility='hidden'; submit_message();">Get my fingerprint</button>
 			        <hr>
 			<div class="info">
 				Browser:

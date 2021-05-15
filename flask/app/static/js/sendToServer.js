@@ -1,5 +1,5 @@
 let submit_message = function () {
-    document.getElementById("submit").style.display = "none";
+
     parametrs.useragent = navigator.userAgent
     parametrs.browserType = browserType()
     parametrs.plugins = pluginsGet()
