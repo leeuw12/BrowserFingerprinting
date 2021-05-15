@@ -1,71 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>BrowserFingerprint</title>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-	<link href="static/css/style.css" rel="stylesheet">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/css_ready.css') }}">
+    <meta charset="utf-8">
+    <title>BrowserFingerprint</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/css_ready.css') }}">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/md5.js"></script>
 </head>
 <body>
-	<nav class="navbar navbar-default navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button aria-controls="navbar" aria-expanded="false" class="navbar-toggle collapsed" data-target="#navbar" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
-				<h1 class="navbar-text">Personal browser fingerprint</h1>
-			</div>
-			<div class="collapse navbar-collapse" id="navbar">
-				<ul class="nav navbar-nav navbar-right">
-					<li>
-						<a href="#first_container">Home</a>
-					</li>
-					<li>
-						<a href="#info1">About</a>
-					</li>
-					<li style="list-style: none">{% if user.id %}</li>
-					<li>
-						<a href="logout">Logout</a>
-					</li>
-					<li style="list-style: none">{% else %}</li>
-					<li>
-						<a href="login">Login</a>
-					</li>
-					<li style="list-style: none">{% endif %}</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-	<section id="first_container">
-		<div class="container">
-			<hr>
-			<div class="info-big">
-				Your Fingerprint:
-			</div>
-			<div class="fp" id="fingerprint"></div><br>
-            <div class="fp" id="useragent"></div><button class="btn btn-primary" id="submit" onclick="submit_message();">Get my fingerprint</button>
-			<hr>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button aria-controls="navbar" aria-expanded="false" class="navbar-toggle collapsed" data-target="#navbar"
+                    data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span> <span
+                    class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
+            <h1 class="navbar-text">Personal browser fingerprint</h1>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#first_container">Home</a>
+                </li>
+                <li>
+                    <a href="#info1">About</a>
+                </li>
+                <li style="list-style: none">{% if user.id %}</li>
+                <li>
+                    <a href="logout">Logout</a>
+                </li>
+                <li style="list-style: none">{% else %}</li>
+                <li>
+                    <a href="login">Login</a>
+                </li>
+                <li style="list-style: none">{% endif %}</li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<section id="first_container">
+    <div class="container">
+        <hr>
+        <div class="info-big">
+            Your Fingerprint:
+        </div>
+        <div class="fp" id="fingerprint"></div>
+        <br>
+        <div class="fp" id="useragent"></div>
+        <button class="btn btn-primary" id="submit" onclick="submit_message();">Get my fingerprint</button>
+        <hr>
 
+        <!--    <script src="{{url_for('static', filename='js/FpOpenSource.js')}}"></script>-->
 
-            <!--    <script src="{{url_for('static', filename='js/FpOpenSource.js')}}"></script>-->
-			 <!--    External scripts-->
-
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/core.min.js">
-			</script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/md5.js">
-			</script> <!--    Getting parametrs:-->
-			 <!--    Parameter handling-->
-
-			<script src="../static/js/parametrs.js">
-			</script> <!--    Making a browser fingerprint-->
-
-			<script src="../static/js/FpOpenSource.js">
-			</script> <!--    <script src="../static/js/Fingerprint.js"></script>-->
-			 <!--    Send to server-->
-
-			<script src="../static/js/sendToServer.js">
-			</script>
-		</div>
-	</section><!--<script src="js/canvas.js"></script>-->
+        <script src="../static/js/parametrs.js" async></script>
+        <script src="../static/js/sendToServer.js" async></script>
+    </div>
+</section>
 </body>
 </html>
