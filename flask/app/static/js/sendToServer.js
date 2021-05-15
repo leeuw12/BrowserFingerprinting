@@ -38,7 +38,7 @@ let submit_message = function () {
             return;
         }
         response.json().then(function (data) {
-            console.log(data);
+            // console.log(data);
         });
     }).catch(function (error) {
         console.log("Fetch error: " + error);
